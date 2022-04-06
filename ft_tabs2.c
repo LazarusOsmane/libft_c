@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_tabs2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engooh <erickngooh.1@gmail.com>            +#+  +:+       +#+        */
+/*   By: engooh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/26 11:41:22 by engooh            #+#    #+#             */
-/*   Updated: 2022/04/06 11:08:14 by engooh           ###   ########.fr       */
+/*   Created: 2022/04/05 10:27:54 by engooh            #+#    #+#             */
+/*   Updated: 2022/04/05 10:33:10 by engooh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	**ft_tabs2(int size1, int len1, int size2, int len2)
 {
-	char	*c;
-	char	*p;
+	int		i;
+	void	**t;
 
-	if (!s1 || !s2)
+	t = malloc(size1 * len1);
+	if (!t)
 		return (NULL);
-	p = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!p)
-		return (NULL);
-	c = p;
-	while (*s1)
-		*p++ = *s1++;
-	while (*s2)
-		*p++ = *s2++;
-	*p = '\0';
-	return (c);
+	i = -1;
+	while (++i < len1)
+	{
+		t[i] = malloc(size2 * len2);
+		if (!t[i])
+			return (NULL);
+	}
+	t[i] = 0;
+	return (t);
 }

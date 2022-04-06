@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_tabs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engooh <erickngooh.1@gmail.com>            +#+  +:+       +#+        */
+/*   By: engooh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/26 11:41:22 by engooh            #+#    #+#             */
-/*   Updated: 2022/04/06 11:08:14 by engooh           ###   ########.fr       */
+/*   Created: 2022/04/05 10:27:25 by engooh            #+#    #+#             */
+/*   Updated: 2022/04/05 15:40:38 by engooh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	*ft_tabs(int size, int len)
 {
-	char	*c;
-	char	*p;
+	void	*t;
 
-	if (!s1 || !s2)
+	if (len < 0)
 		return (NULL);
-	p = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!p)
+	t = malloc(size * (len + 1));
+	if (!t)
 		return (NULL);
-	c = p;
-	while (*s1)
-		*p++ = *s1++;
-	while (*s2)
-		*p++ = *s2++;
-	*p = '\0';
-	return (c);
+	return (t);
 }
